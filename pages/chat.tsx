@@ -45,17 +45,11 @@ export default function Chat() {
     // return () => unsubscribe(); // Cleanup subscription
   }, []);
 
-  // Scroll to the bottom whenever messages change
-  useEffect(() => {
-    
-  }, [newMessage]);
-
   // ฟังก์ชันส่งข้อความใหม่
   const sendMessage = () => {
     // const messagesRef = ref(database, "messages");
     if (newMessage.trim()) {
       //   push(messagesRef, { text: newMessage, timestamp: Date.now() });
-      //   setNewMessage(""); // ล้างช่องข้อความ
 
       // สร้างข้อความใหม่
       const aNewMessage = { text: newMessage, timestamp: Date.now() };
@@ -73,6 +67,7 @@ export default function Chat() {
     }
   };
 
+  // move chat to bottom
   useEffect(() => {
     if (chatRef.current) {
       const { scrollHeight, clientHeight } = chatRef.current;
@@ -82,31 +77,10 @@ export default function Chat() {
       });
       console.log("Scrolled to bottom");
     }
-  }, [messages]); // Replace `messages` with the state/prop that triggers the scroll
-  
+  }, [messages]);
+
 
   return (
-    // <div style={{ padding: "20px" }}>
-    //   <h1>Web Chat</h1>
-    //   <div style={{ maxHeight: "300px", overflowY: "auto", border: "1px solid #ccc", padding: "10px" }}>
-    //     {messages.map((msg, index) => (
-    //       <div key={index} style={{ marginBottom: "10px" }}>
-    //         <strong>Message:</strong> {msg.text} <br />
-    //         <small>{new Date(msg.timestamp).toLocaleString()}</small>
-    //       </div>
-    //     ))}
-    //   </div>
-    //   <div style={{ marginTop: "20px" }}>
-    //     <input
-    //       type="text"
-    //       value={newMessage}
-    //       onChange={(e) => setNewMessage(e.target.value)}
-    //       placeholder="Type your message"
-    //       style={{ width: "80%", marginRight: "10px" }}
-    //     />
-    //     <button onClick={sendMessage}>Send</button>
-    //   </div>
-    //   --
     <div className="relative w-screen h-screen flex flex-col justify-center items-center gap-5 p-5 text-center">
       <div className="relative w-full md:w-full lg:w-[80vw] h-full flex flex-col justify-center items-center gap-5 p-5 m-auto text-center bg-gray-950 bg-opacity-50 shadow-2xl rounded-3xl">
         <h1 className="absolute w-full top-0 left-1/2 -translate-x-1/2 flex justify-center items-center p-4 bg-gradient-to-b from-black/100 via-black/70 to-transparent rounded-3xl">NextJs Chat (TypeScript)</h1>

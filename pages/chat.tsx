@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 // import { database, ref, push, onValue, DataSnapshot } from "../utils/firebase";
 
@@ -93,7 +94,7 @@ export default function Chat() {
           {messages.map((msg, index) => (
             <div key={index} className="w-fit text-base flex flex-row justify-start items-center gap-4 p-2">
               <span className="bg-blue-800 rounded-full w-14 h-14 overflow-hidden">
-                <img src="#" alt="1" className="w-full h-full object-contain" />
+                <Image src="#" alt="1" className="w-full h-full object-contain" />
               </span>
               <div className="flex flex-col justify-center items-start gap-0.5">
                 <span className="font-semibold text-sm">User</span>

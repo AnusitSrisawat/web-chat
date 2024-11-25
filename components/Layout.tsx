@@ -1,6 +1,5 @@
 import Link from "next/link";
 import React, { FC, useState } from "react";
-import '../styles/globals.css';
 import { useRouter } from "next/router";
 
 interface LayoutProps {

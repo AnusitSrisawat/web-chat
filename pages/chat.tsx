@@ -112,7 +112,7 @@ export default function Chat() {
             placeholder="Enter your massage ..."
             onChange={(e) => setNewMessage(e.target.value)}
             onKeyDown={handleKeyDown}
-            className="rounded-xl w-full p-2.5 text-center shadow-2xl border border-transparent bg-gray-700 focus:text-black focus:border-gray-500"
+            className="rounded-xl w-full p-2.5 text-center shadow-2xl border border-transparent bg-gray-700 focus:border-gray-500"
           />
           <button onClick={sendMessage} className="rounded-xl px-5 py-2.5 shadow-2xl bg-gray-800 active:bg-gray-400 active:text-black hover:border-gray-600 border-2 border-transparent hover:border-2 active:border-gray-500">
             Send

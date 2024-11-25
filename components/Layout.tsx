@@ -21,9 +21,9 @@ const Layout: FC<LayoutProps> = ({ children }) => {
         <input
           type="text"
           value={search}
-          placeholder="Search"
+          placeholder="Search..."
           onChange={(e) => setSearch(e.target.value)}
-          className="rounded-full w-full p-2.5 text-center shadow-2xl border border-transparent bg-gray-700 focus:text-black focus:border-gray-500"
+          className="rounded-full w-full p-2.5 text-center shadow-2xl border border-transparent bg-gray-800 focus:border-gray-600"
         />
 
         <div className="h-0.5 w-11/12 bg-white rounded-full opacity-20"></div>

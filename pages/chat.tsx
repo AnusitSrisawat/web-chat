@@ -26,6 +26,7 @@ export default function Chat() {
   //   const [messages, setMessages] = useState<Message[]>([]);
   const [messages, setMessages] = useState<Message[]>(mockMessages);
   const [newMessage, setNewMessage] = useState<string>("");
+  const [roomTitle, setRoomTitle] = useState<string>("จิมมี่จำจะกัด มหาชน");
 
   const inputRef = useRef<HTMLInputElement | null>(null);
   const chatRef = useRef<HTMLDivElement>(null); // Reference to the chat container
@@ -81,9 +82,11 @@ export default function Chat() {
 
 
   return (
-    <div className="relative w-screen h-screen flex flex-col justify-center items-center gap-5 p-5 text-center">
-      <div className="relative w-full md:w-full lg:w-[80vw] h-full flex flex-col justify-center items-center gap-5 p-5 m-auto text-center bg-gray-950 bg-opacity-50 shadow-2xl rounded-3xl">
-        <h1 className="absolute w-full top-0 left-1/2 -translate-x-1/2 flex justify-center items-center p-4 bg-gradient-to-b from-black/100 via-black/70 to-transparent rounded-3xl">NextJs Chat (TypeScript)</h1>
+    <div className="relative w-full h-screen flex flex-col justify-center items-center gap-5 p-5 text-center">
+      <div className="relative w-full h-full flex flex-col justify-center items-center gap-5 p-5 m-auto text-center bg-gray-950 bg-opacity-50 shadow-2xl rounded-3xl">
+        <h1 className="absolute w-full top-0 left-1/2 -translate-x-1/2 flex justify-center items-center px-4 py-6 bg-gradient-to-b from-black/100 via-black/50 to-transparent rounded-3xl">
+          {roomTitle}
+        </h1>
         <div
           ref={chatRef}
           className="h-full w-full overflow-auto px-4 py-2 flex flex-col gap-2">
@@ -108,9 +111,9 @@ export default function Chat() {
             placeholder="Enter your massage ..."
             onChange={(e) => setNewMessage(e.target.value)}
             onKeyDown={handleKeyDown}
-            className="rounded-xl w-full p-2.5 text-center shadow-2xl bg-gray-700 focus:bg-gray-400 focus:text-black focus:border-gray-300 focus:border"
+            className="rounded-xl w-full p-2.5 text-center shadow-2xl border border-transparent bg-gray-700 focus:bg-gray-400 focus:text-black focus:border-gray-300 focus:border"
           />
-          <button onClick={sendMessage} className="px-5 py-2.5 shadow-2xl bg-gray-800 active:bg-gray-400 active:text-black hover:border-gray-600 border-2 border-transparent hover:border-2 active:border-gray-300">
+          <button onClick={sendMessage} className="rounded-xl px-5 py-2.5 shadow-2xl bg-gray-800 active:bg-gray-400 active:text-black hover:border-gray-600 border-2 border-transparent hover:border-2 active:border-gray-500">
             Send
           </button>
         </div>

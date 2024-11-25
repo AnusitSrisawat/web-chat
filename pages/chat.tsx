@@ -26,7 +26,7 @@ export default function Chat() {
   //   const [messages, setMessages] = useState<Message[]>([]);
   const [messages, setMessages] = useState<Message[]>(mockMessages);
   const [newMessage, setNewMessage] = useState<string>("");
-  const [roomTitle, setRoomTitle] = useState<string>("จิมมี่จำจะกัด มหาชน");
+  const [roomTitle] = useState<string>("จิมมี่จำจะกัด มหาชน");
 
   const inputRef = useRef<HTMLInputElement | null>(null);
   const chatRef = useRef<HTMLDivElement>(null); // Reference to the chat container

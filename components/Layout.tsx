@@ -28,7 +28,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
 
         <Link href="/"
           className={`w-full rounded-full border-2 border-transparent 
-          flex items-center justify-center gap-2 duration-1000
+          flex items-center justify-center gap-2
           opacity-100 text-white hover:bg-gray-400 text-sm sm:text-base 
           h-10 sm:h-12 px-4 sm:px-5 `
           + (router.pathname === "/" ? ` border-gray-400` : ``)}
@@ -37,7 +37,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
         </Link>
         <Link href="/chat"
           className={`w-full rounded-full border-2 border-transparent 
-            flex items-center justify-center gap-2 duration-1000
+            flex items-center justify-center gap-2
             opacity-100 text-white hover:bg-gray-400 text-sm sm:text-base 
             h-10 sm:h-12 px-4 sm:px-5 `
             + (router.pathname === "/chat" ? ` border-gray-400` : ``)}

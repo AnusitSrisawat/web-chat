@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { FC, useState } from "react";
 import '../styles/globals.css';
+import { useRouter } from "next/router";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -10,6 +11,9 @@ interface LayoutProps {
 const Layout: FC<LayoutProps> = ({ children }) => {
 
   const [search, setSearch] = useState<string>("");
+
+
+  const router = useRouter();
 
   return (
     <div className="w-screen h-screen flex flex-row">
@@ -20,24 +24,26 @@ const Layout: FC<LayoutProps> = ({ children }) => {
           value={search}
           placeholder="Search"
           onChange={(e) => setSearch(e.target.value)}
-          className="rounded-full w-full p-2.5 text-center shadow-2xl border border-transparent bg-gray-700 focus:bg-gray-400 focus:text-black focus:border-gray-300 focus:border"
+          className="rounded-full w-full p-2.5 text-center shadow-2xl border border-transparent bg-gray-700 focus:text-black focus:border-gray-500"
         />
 
         <div className="h-0.5 w-11/12 bg-white rounded-full opacity-20"></div>
 
         <Link href="/"
-          className="w-full rounded-full border border-transparent 
+          className={`w-full rounded-full border-2 border-transparent 
           flex items-center justify-center gap-2 duration-1000
           opacity-100 text-white hover:bg-gray-400 text-sm sm:text-base 
-          h-10 sm:h-12 px-4 sm:px-5"
+          h-10 sm:h-12 px-4 sm:px-5 `
+          + (router.pathname === "/" ? ` border-gray-400` : ``)}
         >
           Home
         </Link>
         <Link href="/chat"
-          className="w-full rounded-full border border-transparent 
-          flex items-center justify-center gap-2
-          opacity-100 text-white hover:bg-gray-400 text-sm sm:text-base 
-          h-10 sm:h-12 px-4 sm:px-5"
+          className={`w-full rounded-full border-2 border-transparent 
+            flex items-center justify-center gap-2 duration-1000
+            opacity-100 text-white hover:bg-gray-400 text-sm sm:text-base 
+            h-10 sm:h-12 px-4 sm:px-5 `
+            + (router.pathname === "/chat" ? ` border-gray-400` : ``)}
         >
           Chat
         </Link>

@@ -11,7 +11,6 @@ const Layout: FC<LayoutProps> = ({ children }) => {
 
   const [search, setSearch] = useState<string>("");
 
-
   const router = useRouter();
 
   return (
